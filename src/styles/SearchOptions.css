@@ -1,0 +1,19 @@
+.searchOptions {
+    height: 50px;
+    width: 100%;
+    background: rgba(225, 224, 224, 0.365);
+    position: relative;
+    padding: 5px 20px;;
+    border-radius: 10px;
+}
+
+.exactPhraseCheckbox {
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+    transform: translateY(2px)
+}
+
+.exactPhraseLabel {
+    margin-right: 10px;
+}

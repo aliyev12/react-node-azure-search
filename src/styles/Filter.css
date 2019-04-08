@@ -1,0 +1,19 @@
+.clear-all-facets {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.clear-all-facets button {
+    border: unset;
+    outline: none;
+    background-color: transparent;
+    color: #ff0000;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+}
+
+.clear-all-facets button:hover {
+    text-decoration: underline;
+    color: #0000ff;
+}
