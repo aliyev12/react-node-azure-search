@@ -18,16 +18,17 @@ html, body, div, p, ul, li {
   
   /* This rule centers the nav items verticaly in the bar with the height and line height properties. Spacing between the nav items is controlled by setting right and left padding.  */
   .nav li {
-    display: inline-block;
+    display: flex;
     list-style: none;
+    width: 294px;
     height: 60px; /* should be the same as line-height */
     line-height: 60px; /* should be the same as height */
-    padding: 0 40px; /* "0" sets top and bottom padding to none */
+    padding: 0;
   }
   
   /* :hover allows you change the background color of the nav items when you mouse over them. Play around with the transition value to change the speed of the hover transition. */
   .nav li:hover {
-    background: red;
+    background: #fff;
     transition: background .3s;
   }
   

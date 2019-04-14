@@ -1,0 +1,9 @@
+.searchResultsContainer {
+    display: flex;
+}
+
+.filter-container {
+    max-width: 40vw;
+    min-width: 23vw;
+    margin-right: 30px;
+}

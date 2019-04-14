@@ -1,5 +1,6 @@
 .feature-class {
-    list-style: none;
+    list-style: square inside ;
+    cursor: pointer;
 }
 
 /* .feature-class:before {

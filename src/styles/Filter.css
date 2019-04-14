@@ -17,3 +17,27 @@
     text-decoration: underline;
     color: #0000ff;
 }
+
+.checked-facets-display {
+    list-style: none;
+    margin: 10px 0 20px 0;
+}
+
+.checked-facets-display > button {
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.checked-facets-display > button > span {
+    display: inline-block;
+    color: red;
+    font-size: 1.5rem;
+    transition: all 0.3s;
+}
+
+.checked-facets-display > button > span:hover {
+    color: #0000ff;
+}

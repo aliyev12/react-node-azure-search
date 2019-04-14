@@ -33,12 +33,10 @@ class SearchUI extends Component {
     const searchValue = encodeURIComponent (this.state.searchInput);
     const searchMode = this.state.exactPhraseChecked ? 'all' : 'any';
     this.context.setSearchValueAndMode(searchValue, searchMode);
-    console.log('check check check');
     this.context
       .getResults (searchValue, searchMode)
       .then (res => {
-          console.log('getFilterClasses');
-          this.context.getFilterClasses();
+          // this.context.getFilterClasses();
       })
       .catch (err => console.log (err));
   };
@@ -70,7 +68,7 @@ class SearchUI extends Component {
       <Context.Consumer>
         {context => (
           <div className="searchui-grid-container">
-            <div className="search-container">
+            <div className="search-container" style={{ marginBottom: '20px' }}>
               <Search
                 searchInput={this.state.searchInput}
                 handleChange={this.handleChange}
@@ -79,9 +77,9 @@ class SearchUI extends Component {
                 clear={this.clear}
               />
             </div>
-            <div className="filter-container">
+            {/* <div className="filter-container">
               <Filter />
-            </div>
+            </div> */}
             <div className="results-container">
               {context.loading && <div>Loading...</div>}
               {context && context.results.length > 0 && <SearchResults />}

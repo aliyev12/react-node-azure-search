@@ -2,21 +2,16 @@ import React from 'react';
 import '../styles/FeatureClass.css';
 import Context from '../context/Context';
 
-const FeatureClass = ({id, name, count, checked, onFacetCheck}) => (
+const FeatureClass = ({featureClass}) => (
   <Context.Consumer>
     {context => (
-      <li className="feature-class">
-        <label>
-          <input
-            type="checkbox"
-            onChange={() => context.onFacetCheck (id)}
-            checked={checked}
-            name="facet"
-          />
-          {' '}
-          &nbsp;
-          {name}(<strong>{count}</strong>)
-        </label>
+      <li
+        className="feature-class"
+        onClick={context.onFacetCheck.bind(this, featureClass.value)}
+      >
+        <span>
+          {featureClass.value}(<strong>{featureClass.count}</strong>)
+        </span>
       </li>
     )}
   </Context.Consumer>

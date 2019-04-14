@@ -2,45 +2,54 @@ import React, {Component} from 'react';
 import FeatureClass from './FeatureClass';
 import Context from '../context/Context';
 import '../styles/Filter.css';
+import uniqid from 'uniqid';
 
 export class Filter extends Component {
     static contextType = Context;
 
     render() {
         return (
-            <div>
+            <>
                 <h1>Filter Results</h1>
-                {this.context.results.length > 0 && (
-                    <>
-                        <h2>Classes</h2>    
-                        <ul className="filter-classes-ul">
-                            <li className="clear-all-facets">
-                                <button onClick={this.context.clearAllCheckedFacets}>
-                                    Clear all
-                                </button>
-                            </li>
-                            {this.context.filterClasses.map((fc, i) => (
-                                <FeatureClass
-                                    name={fc.name}
-                                    count={fc.count}
-                                    key={fc.id}
-                                    id={fc.id}
-                                    checked={fc.checked}
-                                />
-                            ))}
-                        </ul>
+                <>
+                    <h2>Classes</h2>
+                    <ul className="filter-classes-ul">
+                        <li className="clear-all-facets">
+                            <button
+                                onClick={this.context.clearAllCheckedFacets}
+                            >
+                                Clear all
+                            </button>
+                        </li>
 
-                        <h2>Location</h2>
-                    </>
-                )}
-            </div>
+                        {this.context.checkedFacets.length > 0 && (
+                            <>
+                                <h3><em>Checked Facets</em></h3>
+                                {this.context.checkedFacets.map(
+                                    (checkedFacet, i) => (
+                                        <li className="checked-facets-display" key={i}><button onClick={this.context.clearCheckedFacet.bind(this, checkedFacet)}><span>&times;</span></button>{checkedFacet}</li>
+                                    )
+                                )}
+                            </>
+                        )}
+
+                        {this.context.featureClasses.map((fc, i) => (
+                            <FeatureClass
+                                featureClass={fc}
+                                key={uniqid()}
+                            />
+                        ))}
+    
+                    </ul>
+
+                    <h2>Location</h2>
+                </>
+            </>
         );
     }
 }
 
 export default Filter;
-
-
 
 // function arraysEqual(arr1, arr2) {
 //     if(arr1.length !== arr2.length)
@@ -52,7 +61,6 @@ export default Filter;
 
 //     return true;
 // }
-
 
 // builtFilter = (color, category, priceFrom, priceTo) => {
 //     let filter = `&$filter=discontinueDate eq null`;
