@@ -66,7 +66,6 @@ class Store extends React.Component {
           count: res.data['@odata.count'],
           loading: false,
         });
-        console.log(res.data);
         resolve (res.data);
         NProgress.done ();
       } catch (err) {
