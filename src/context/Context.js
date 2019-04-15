@@ -27,8 +27,10 @@ class Store extends React.Component {
     await this.getResults (this.state.searchValue, this.state.searchMode);
   };
 
-  getResults = (val, searchMode) => {
+  getResults = async (val, searchMode, distanceOption, longitude, latitude, suggestion = false) => {
     let filterString = '';
+    const userLocation = distanceOption === 'distance' ? `geo.distance(LOCATION,geography'POINT(${longitude} ${latitude})') asc` : '';
+
     // If there currently are any checked facets, then build a filter string
     if (this.state.checkedFacets.length > 0) {
       this.state.checkedFacets.forEach ((facet, i) => {
@@ -49,6 +51,7 @@ class Store extends React.Component {
       $count: true,
       $filter: filterString,
       facet: 'FEATURE_CLASS,count:20',
+      $orderby: userLocation,
     };
     return new Promise (async (resolve, reject) => {
       try {
@@ -56,7 +59,7 @@ class Store extends React.Component {
         this.setState ({loading: true});
         const res = await axios ({
           method: 'get',
-          url: getIndexDocsUrl (options),
+          url: getIndexDocsUrl (options, suggestion),
           headers,
           withCredentials: false,
         });
@@ -66,6 +69,7 @@ class Store extends React.Component {
           count: res.data['@odata.count'],
           loading: false,
         });
+        console.log('DATA +++++++',res.data);
         resolve (res.data);
         NProgress.done ();
       } catch (err) {
@@ -112,15 +116,7 @@ class Store extends React.Component {
           setSearchValueAndMode: (searchValue, searchMode) => {
             this.setState ({searchValue, searchMode});
           },
-          //   getFilterClasses: () =>
-          //     this.setState ({
-          //       filterClasses: this.state.featureClasses.map (fc => ({
-          //         id: uniqid (),
-          //         name: fc.value,
-          //         count: fc.count,
-          //         checked: false,
-          //       })),
-          //     }),
+          setLoading: (loading) => this.setState({ loading }),
           setFiltersNeedsUpdate: () =>
             this.setState ({filtersNeedsUpdate: false}),
         }}

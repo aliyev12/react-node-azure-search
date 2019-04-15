@@ -1,0 +1,22 @@
+#distanceOption {
+    height: 42px;
+    margin: 0 10px 0 0;
+    border: 1px solid #333;
+    background-color: rgba(235, 235, 235, 0.605);
+    color: rgba(51, 51, 51, 0.701);
+    font-size: 1rem;
+    outline: none;
+}
+
+.searchInput {
+    width: 400px;
+    height: 40px;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #333;
+    border-radius: 10px;
+    background-color: rgba(235, 235, 235, 0.605);
+    color: rgba(51, 51, 51, 0.701);
+    font-size: 1rem;
+    outline: none;
+}

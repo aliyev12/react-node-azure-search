@@ -5,11 +5,6 @@
     --menu-speed: 0.75s;
 }
 
-#svg-text {
-    fill: blue;
-    stroke: blue;
-}
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -20,41 +15,6 @@ body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.4;
 }
-
-/* .searchInput {
-    width: 400px;
-    height: 40px;
-    padding: 20px;
-    margin: 20px;
-    border: 1px solid #333;
-    border-radius: 10px;
-    background-color: rgba(235, 235, 235, 0.605);
-    color: rgba(51, 51, 51, 0.701);
-    font-size: 1rem;
-    outline: none;
-}
-
-.searchButton {
-    height: 40px;
-    padding: 0 30px;
-    color: #fff;
-    font-size: 1rem;
-    outline: none;
-    background-color: #333;
-    border: 1px transparent solid;
-    border-bottom: 1px solid rgb(255, 0, 0);
-    transition: all 0.3s;
-    margin: 0 10px;
-}
-
-.searchButton:hover,
-.learnButton:hover  {
-    background-color: rgba(51, 51, 51, 0.81);
-    border-bottom: 1px solid #00ff00;
-    transform: skew(-5deg);
-}
-
-.searchButton:active, */
 
 .learnButton:hover  {
     background-color: rgba(51, 51, 51, 0.81);

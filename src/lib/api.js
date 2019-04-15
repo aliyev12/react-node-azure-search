@@ -17,20 +17,29 @@ export const headers = {
 };
 
 // getIndexDocsUrl function builds and returns a URL for fetching documents based on index with all the parameters passed on to it
-export function getIndexDocsUrl(options) {
-    let moreThanOne = false;
-    let query = '';
-    const optionKeys = [...Object.keys(options)];
-    optionKeys.forEach(optionKey => {
-        if (options[optionKey]) {
-            if (!moreThanOne) {
-                query += `${optionKey}=${options[optionKey]}`;
-            } else {
-                query += `&${optionKey}=${options[optionKey]}`;
-            }
-            moreThanOne = true;
-        }
-    });
-    console.log('QUERY ===>',query);
-    return `${url.main}/indexes/${url.indexName}/docs?${query}&${url.apiVersion}`;
+export function getIndexDocsUrl (options, suggestion) {
+  console.log ('options ===> ', options);
+  let moreThanOne = false;
+  let query = '';
+  const optionKeys = [...Object.keys (options)];
+  optionKeys.forEach (optionKey => {
+    if (options[optionKey]) {
+      if (!moreThanOne) {
+        query += `${optionKey}=${options[optionKey]}`;
+      } else {
+        query += `&${optionKey}=${options[optionKey]}`;
+      }
+      moreThanOne = true;
+    }
+  });
+  console.log ('QUERY ===>', query);
+  return `${url.main}/indexes/${url.indexName}/docs${suggestion ? '/suggest' : ''}?${query}&${url.apiVersion}`;
+}
+
+export function getUserLocation () {
+  return new Promise ( (resolve, reject) => {
+       navigator.geolocation.getCurrentPosition (location => {
+        resolve (location.coords);
+      });
+  });
 }

@@ -9,8 +9,8 @@ const FeatureClass = ({featureClass}) => (
         className="feature-class"
         onClick={context.onFacetCheck.bind(this, featureClass.value)}
       >
-        <span>
-          {featureClass.value}(<strong>{featureClass.count}</strong>)
+        <span title={featureClass.value}>
+          {featureClass.value.length <= 8 ? featureClass.value : featureClass.value.slice(0, 7) + '...'}(<strong>{featureClass.count}</strong>)
         </span>
       </li>
     )}

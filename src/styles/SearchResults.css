@@ -1,9 +1,9 @@
 .searchResultsContainer {
     display: flex;
+    flex-direction: row;
 }
 
 .filter-container {
-    max-width: 40vw;
-    min-width: 23vw;
-    margin-right: 30px;
+    max-width: 20vw;
+    min-width: 20vw;
 }

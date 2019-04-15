@@ -41,8 +41,6 @@ export class Filter extends Component {
                         ))}
     
                     </ul>
-
-                    <h2>Location</h2>
                 </>
             </>
         );
