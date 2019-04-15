@@ -110,10 +110,11 @@ class SearchUI extends Component {
   handleKeyUp = (suggestionIndex, e) => {
     const currentTime = new Date().getTime();
     if (currentTime - this.state.lastKeyUpAt > 2000) {
-        this.context
-          .getResults (e.target.value, this.state.exactPhraseChecked ? 'all' : 'any', this.state.distanceOption, this.state.longitude, this.state.latitude, true)
-          .then (res => console.log('ON KEY UP STUFF ===>  ',res))
-          .catch (err => console.log (err));
+        // this.context
+        //   .getResults (e.target.value, this.state.exactPhraseChecked ? 'all' : 'any', this.state.distanceOption, this.state.longitude, this.state.latitude, true)
+        //   .then (res => console.log('ON KEY UP STUFF ===>  ',res))
+        //   .catch (err => console.log (err));
+        console.log('This is where sugestions are brought in...');
 
 
         this.setState({ lastKeyUpAt: new Date().getTime() });
